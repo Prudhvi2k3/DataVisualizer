@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Iris Dataset Visualizer</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .box {
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+        }
+        .image-box {
+            width: calc(100% - 20px); 
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Iris Dataset Visualizer</h1>
+    
+            <h2>Top Rows of Dataset</h2>
+            <div class="overview">
+                {{ dataset_overview | safe }}
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <h2>Plots</h2>
+        <div class="images">
+            <div class="image-box">
+                <h3>Scatter Plot</h3>
+                <img src="data:image/png;base64,{{ scatterplot_url }}" alt="Scatterplot">
+                <a href="data:image/png;base64,{{ scatterplot_url }}" download="scatterplot.png">
+                    <button>Download Scatterplot</button>
+                </a>
+            </div>
+            <div class="image-box">
+                <h3>Histogram</h3>
+                <img src="data:image/png;base64,{{ histogram_url }}" alt="Histogram">
+                <a href="data:image/png;base64,{{ histogram_url }}" download="histogram.png">
+                    <button>Download Histogram</button>
+                </a>
+            </div>
+            <div class="image-box">
+                <h3>Pair Plot</h3>
+                <img src="data:image/png;base64,{{ pairplot_url }}" alt="PairPlot">
+                <a href="data:image/png;base64,{{ pairplot_url }}" download="pairplot.png">
+                    <button>Download Pair Plot</button>
+                </a>
+            </div>
+            <div class="image-box">
+                <h3>Box Plot</h3>
+                <img src="data:image/png;base64,{{ boxplot_url }}" alt="Box Plot">
+                <a href="data:image/png;base64,{{ boxplot_url }}" download="boxplot.png">
+                    <button>Download Box plot</button>
+                </a>
+            </div>
+            <div class="image-box">
+                <h3>Violin Plot</h3>
+                <img src="data:image/png;base64,{{ violinplot_url }}" alt="Violin">
+                <a href="data:image/png;base64,{{ violinplot_url }}" download="violin.png">
+                    <button>Download Violin Plot</button>
+                </a>
+            </div>
+            <div class="image-box">
+                <h3>Pie Chart</h3>
+                <img src="data:image/png;base64,{{ piechart_url }}" alt="Pie Chart">
+                <a href="data:image/png;base64,{{ piechart_url }}" download="piechart.png">
+                    <button>Download Pie Chart</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
